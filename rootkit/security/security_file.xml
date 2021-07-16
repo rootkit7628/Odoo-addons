@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+     <!-- Secutity Group -->
+     <record id="module_rootkit_ctgr" model="ir.module.category">
+          <field name="name">Rootkit</field>
+     </record>
+
+     <!-- Adding user group -->
+     <record id="rootkit_user_group" model="res.groups">
+          <field name="name">Arleme</field>
+          <field name="category_id" ref="module_rootkit_ctgr"/>
+          <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+     </record>
+
+     <!-- Adding manager group -->
+     <record id="rootkit_group_manager" model="res.groups">
+          <field name="name">Manager</field>
+          <field name="category_id"  ref="module_rootkit_ctgr"/>
+          <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+     </record>
+     <data noupdate="1">
+          <record id="rootkit_user_rule" model="ir.rule">
+               <field name="name">Library Book User Access</field>
+               <field name="model_id" ref="model_rootkit_book"/>
+               <field name="domain_force">
+                    [('active','=',True)]
+               </field>
+               <field name="groups" eval="[(4,ref('rootkit_user_group'))]"/>
+          </record>
+     </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version='1.0' ?>
+<odoo>
+     <!-- App menu for rootkit -->
+     <menuitem id="menu_rootkit" name="rootkit"/>
+
+     <!-- Action to open the Book list -->
+     <act_window id="action_rootkit_book"
+          name="ROOTKIT MENU"
+          res_model="rootkit.book"
+          view_mode="tree,form"
+     />
+
+     <!-- Menu item to open the Book list -->
+     <menuitem id="menu_rootkit_book"
+          name="Books"
+          parent="menu_rootkit"
+          action="action_rootkit_book"
+     />
+</odoo>
