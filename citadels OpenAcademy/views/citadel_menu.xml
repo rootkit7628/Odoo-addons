@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- App menu for the citadels -->
+    <menuitem 
+        id="citadel_menu" 
+        name="Citadels"
+    />
+
+    <!-- Mesters of the citadels -->
+    <act_window id="action_citadel_maester"
+        name="Maesters of the kingdom"
+        res_model="citadel.maester"
+        view_mode="tree,form"
+    />
+    <menuitem 
+        id="citadel_maester_menu"
+        name="Maester"
+        action="action_citadel_maester"
+        parent="citadel_menu" />
+    />
+
+    <!-- Expertise -->
+    <act_window id="action_citadel_maester_expertise"
+        name="List of Expertise"
+        res_model="citadel.maester.expertise"
+        view_mode="tree,form"
+    />
+    <menuitem 
+    id="citadel_maester_expertise_menu"
+    action="action_citadel_maester_expertise"
+    parent="citadel_menu" />
+/>
+</odoo>
