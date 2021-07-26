@@ -27,8 +27,21 @@
         view_mode="tree,form"
     />
     <menuitem 
-    id="citadel_maester_expertise_menu"
-    action="action_citadel_maester_expertise"
-    parent="citadel_menu" />
-/>
+        id="citadel_maester_expertise_menu"
+        action="action_citadel_maester_expertise"
+        parent="citadel_menu"
+    />
+
+    <!-- Session of formation -->
+    <act_window id="action_citadel_session"
+        name="Sessions of formation"
+        res_model="citadel.session"
+        view_mode="tree,form"
+    />
+
+    <menuitem 
+        id="citadel_session_menu"
+        action="action_citadel_session"
+        parent="citadel_menu" />
+    />
 </odoo>
