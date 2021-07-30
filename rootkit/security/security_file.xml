@@ -19,7 +19,7 @@
           <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
           <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
      </record>
-     <data noupdate="0">
+     <data noupdate="1">
           <record id="rootkit_user_rule" model="ir.rule">
                <field name="name">Library Book User Access</field>
                <field name="model_id" ref="model_rootkit_book"/>

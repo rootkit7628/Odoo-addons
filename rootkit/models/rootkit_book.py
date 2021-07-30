@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import api, fields, models
 from odoo.exceptions import Warning
 
 
@@ -7,6 +7,16 @@ class Book(models.Model):
         This class is for the books created inside the
         Rootkit modules
     """
+
+    _name = 'rootkit.book'
+    _description = 'Book'
+    name = fields.Char('Title', required=True)
+    isbn = fields.Char('ISBN')
+    active = fields.Boolean('Active?', default=True)
+    date_published = fields.Date()
+    image = fields.Binary('Cover')
+    publisher_id = fields.Many2one('res.partner', string='Publisher')
+    author_ids = fields.Many2many('res.partner', string='Authors')
 
     @api.multi
     def _check_isbn(self):
@@ -30,14 +40,4 @@ class Book(models.Model):
                 raise Warning('%s is an invalid ISBN' % book.isbn)
 
         return True
-
-    _name = 'rootkit.book'
-    _description = 'Book'
-    name = fields.Char('Title', required=True)
-    isbn = fields.Char('ISBN')
-    active = fields.Boolean('Active?', default=True)
-    date_published = fields.Date()
-    image = fields.Binary('Cover')
-    publisher_id = fields.Many2one('res.partner', string='Publisher')
-    author_ids = fields.Many2many('res.partner', string='Authors')
     

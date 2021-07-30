@@ -5,30 +5,31 @@
     <menuitem 
         id="citadel_menu" 
         name="Citadels"
+        web_icon="citadel,static/description/icon.png"
     />
 
     <!-- Mesters of the citadels -->
-    <act_window id="action_citadel_maester"
+    <act_window id="action_res_partner_maester"
         name="Maesters of the kingdom"
-        res_model="citadel.maester"
+        res_model="res.partner.maester"
         view_mode="tree,form"
     />
     <menuitem 
-        id="citadel_maester_menu"
+        id="maester_res_partner_menu"
         name="Maester"
-        action="action_citadel_maester"
+        action="action_res_partner_maester"
         parent="citadel_menu" />
     />
 
     <!-- Expertise -->
-    <act_window id="action_citadel_maester_expertise"
-        name="List of Expertise"
-        res_model="citadel.maester.expertise"
+    <act_window id="action_citadel_course"
+        name="List of Course"
+        res_model="citadel.course"
         view_mode="tree,form"
     />
     <menuitem 
-        id="citadel_maester_expertise_menu"
-        action="action_citadel_maester_expertise"
+        id="citadel_course_menu"
+        action="action_citadel_course"
         parent="citadel_menu"
     />
 
@@ -42,6 +43,19 @@
     <menuitem 
         id="citadel_session_menu"
         action="action_citadel_session"
+        parent="citadel_menu" />
+    />
+
+    <!-- State of the session -->
+    <act_window id="action_citadel_session_stt"
+        name="Session state"
+        res_model="citadel.session.state"
+        view_mode="tree,form"
+    />
+
+    <menuitem 
+        id="citadel_session_stt_menu"
+        action="action_citadel_session_stt"
         parent="citadel_menu" />
     />
 </odoo>

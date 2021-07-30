@@ -3,7 +3,7 @@
      'version':'1.0',
      'summary':'A module test',
      'description':'Just a module to do some test',
-     'author':'Arleme Johnson',
+     'author':'Arleme J.',
      'depends':['base'],
      'application': True,
      'installable': True,

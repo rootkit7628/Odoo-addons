@@ -1,21 +1,23 @@
+# pylint: disable=invalid-name
 # -*- coding: utf-8 -*-
-"""
-    Test unitaire
-"""
 from odoo.tests.common import TransactionCase
 
 
 class TestBook(TransactionCase):
-
-
+    """
+        Test unitaire
+    """
     def setUp(self, *args, **kwargs):
-        result = super().setUp(*args, **kwargs)
+        "Test simulating a book data "
+        result = super(TestBook, self).setUp(*args, **kwargs)
+        # Prepare environment with the Admin user
         user_admin = self.env.ref('base.user_admin')
-        self.env= self.env(user=user_admin)
+        self.env = self.env(user=user_admin)
+        # Setup test data
         self.Book = self.env['rootkit.book']
         self.book_ode = self.Book.create({
             'name': 'Odoo Development Essentials',
-            'isbn': '879-1-78439-279-6'})
+            'isbn': '978-1-78439-279-6'})
         return result
 
     def test_create(self):
@@ -24,4 +26,4 @@ class TestBook(TransactionCase):
 
     def test_check_isbn(self):
         "Check valid ISBN"
-        self.assertTrue(self.book_ode._check_isbn)
+        self.assertTrue(self.book_ode._check_isbn())

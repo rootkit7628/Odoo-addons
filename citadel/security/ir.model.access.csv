@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_citadel_maester,CitadelMaester,model_res_partner_maester,,1,1,1,1
+access_citadel_course,CitadelCourse,model_citadel_course,,1,1,1,1
+access_citadel_session,CitadelSession,model_citadel_session,,1,1,1,1
+access_session_state,CitadelSessionState,model_citadel_session_state,,1,1,1,1

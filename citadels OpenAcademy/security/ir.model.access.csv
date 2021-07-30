@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_citadel_user,CitadelUser,model_citadel_maester,citadel_group_user,1,1,1,1
-access_citadel_manager,CitadelManager,model_citadel_maester,citadel_group_manager,1,1,1,1
-access_exprt_user,CitadelUserExpertise,model_citadel_maester_expertise,citadel_group_user,1,1,1,1
-access_exprt_manager,CitadelManagerExpertise,model_citadel_maester_expertise,citadel_group_manager,1,1,1,1
-access_session_user,CitadelUserSession,model_citadel_session,citadel_group_user,1,1,1,1
-access_session_manager,CitadelManagerSession,model_citadel_session,citadel_group_manager,1,1,1,1

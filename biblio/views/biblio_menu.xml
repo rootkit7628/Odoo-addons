@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main menu Biblio -->
+    <menuitem
+        id="biblio_menu"
+        name="Biblio"
+        web_icon="biblio,static/description/icon.png"/>
+    
+    <!-- Biblio book -->
+    <act_window
+        id="action_biblio_book"
+        name="Books"
+        res_model="biblio.book"
+        view_mode="tree,form"
+    />
+    <menuitem
+        id="biblio_book_menu"
+        action="action_biblio_book"
+        parent="biblio_menu"/>
+
+    <!-- Biblio customer -->
+    <act_window
+        id="action_biblio_customer"
+        name="Customers Lists"
+        res_model="biblio.customer"
+        view_mode="tree,form"/>
+    <menuitem
+        id="biblio_customer_menu"
+        action="action_biblio_customer"
+        parent="biblio_menu"/>
+
+    <!-- Biblio rental -->
+    <act_window
+        id="action_biblio_rental"
+        name="Rental history"
+        res_model="biblio.rental"
+        view_mode="tree,form"/>
+
+    <menuitem
+        id="biblio_rental_menu"
+        action="action_biblio_rental"
+        parent="biblio_menu"/>
+</odoo>

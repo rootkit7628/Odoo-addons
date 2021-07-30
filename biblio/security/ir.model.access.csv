@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_create
+access_biblio_book,BiblioBook,model_biblio_book,,1,1,1,1
+access_biblio_rental,BiblioRental,model_biblio_rental,,1,1,1,1
+access_biblio_customer,BiblioCustomer,model_biblio_customer,,1,1,1,1

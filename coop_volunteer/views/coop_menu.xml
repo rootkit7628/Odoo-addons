@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- App menu for the citadels -->
+    <menuitem 
+        id="coop_menu" 
+        name="Cooperative"
+        web_icon="coop_volunteer,static/description/icon.png"
+    />
+
+    <!-- TAsks of the cooperative -->
+    <act_window id="action_coop_task"
+        name="Cooperative Tasks"
+        res_model="coop.task"
+        view_mode="tree,form"
+    />
+    <menuitem 
+        id="coop_task_menu"
+        name="Tasks"
+        action="action_coop_task"
+        parent="coop_menu" />
+    />
+
+    <!-- Volunteers -->
+    <act_window id="action_coop_volunteer"
+        name="List of volunteers"
+        res_model="coop.volunteer"
+        view_mode="tree,form"
+    />
+    <menuitem 
+        id="coop_volunteer_menu"
+        name="Volunteers"
+        action="action_coop_volunteer"
+        parent="coop_menu"
+    />
+
+</odoo>

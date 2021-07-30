@@ -5,12 +5,14 @@
          training sessions of its future maesters.''',
     'author':'Arleme J.',
     'depends':[
-        'base'
+        'base',
     ],
     'data':[
-        'security/citadel_secure.xml',
         'security/ir.model.access.csv',
         'views/citadel_menu.xml',
+        'views/citadel_maester.xml',
+        'views/course_list.xml',
+        'views/session_list.xml',
     ],
     'application': True,
     'installable': True

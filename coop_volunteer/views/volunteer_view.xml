@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tree_volunteer" model="ir.ui.view">
+        <field name="name">Cooperative Volunteers</field>
+        <field name="model">coop.volunteer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="photo" widget="image"/>
+                <field name="name" />
+                <field name="tel" widget="integer"/>
+                <field name="adress" />
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -6,7 +6,7 @@
           <field name="arch" type="xml">
                <form>
                     <header>
-                         <button name="check_isbn" type="object"
+                         <button name="button_check_isbn" type="object"
                          string="check ISBN" />
                     </header>
                     <sheet>

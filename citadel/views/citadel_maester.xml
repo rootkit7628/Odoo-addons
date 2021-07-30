@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tree_maester" model="ir.ui.view">
+        <field name="name">Master lists</field>
+        <field name="model">res.partner.maester</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="professor" string="Professor ?"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

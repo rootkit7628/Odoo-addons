@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tree_course" model="ir.ui.view">
+        <field name="name">Session Lists</field>
+        <field name="model">citadel.session</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="course_id" />
+                <field name="volunteer_id" />
+                <field name="date_begin"/>
+                <field name="room"/>
+                <field name="state"/>
+                <field name="attendee_ids" widget="many2many_tag"/>
+                <field name="place_occuped" widget="progressbar"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
