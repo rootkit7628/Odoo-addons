@@ -8,8 +8,11 @@
         'base'
     ],
     'data':[
-        'security/ir.model.access.csv',
+        'security/ir.model.access.csv', 
         'views/biblio_menu.xml',
+        'views/book_view.xml',
+        'views/customer_view.xml',
+        'views/rental_view.xml',
     ],
     'application': True,
     'installable': True

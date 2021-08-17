@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tree_rental" model="ir.ui.view">
+        <field name="name">RENTALS</field>
+        <field name="model">biblio.rental</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="rental_date" />
+                <field name="turnin_date" />
+                <field name="customer_id"/>
+                <field name="book_id"/>
+                <field name="customer_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

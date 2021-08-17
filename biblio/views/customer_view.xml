@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tree_customer" model="ir.ui.view">
+        <field name="name">CUSTOMERS</field>
+        <field name="model">biblio.customer</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="name" />
+                <field name="adress"/>
+                <field name="telephone" />
+                <field name="email" />
+            </tree>
+        </field>
+    </record>
+</odoo>

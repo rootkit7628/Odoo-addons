@@ -6,13 +6,129 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="task_type" />
                 <field name="begin_time" />
-                <field name="duration" />
-                <field name="volunters_ids" widget="many2many_tags"/>
-                <field name="volunteer_nb" />
+                <field name="volunteer_id" />
                 <field name="active" />
             </tree>
         </field>
     </record>
+
+    <record id="task_view_form" model="ir.ui.view">
+        <field name="name">view.task.form</field>
+        <field name="model">coop.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="task_template_id" readonly="1"
+                                   attrs="{ 'invisible' : [('task_template_id', '=', False)]}"/>
+                            <field name="task_type_id" options="{'no_create': True}"
+                                   attrs="{ 'readonly' : [('task_template_id', '!=', False)], 'required' : [('task_template_id', '=', False)]}"/>
+                            <field name="volunteer_id"/>
+                        </group>
+                        <group>
+                            <field name="begin_time"/>
+                            <field name="finish_time"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="task_template_view_tree" model="ir.ui.view">
+        <field name="name">view.task.template.tree</field>
+        <field name="model">coop.task.template</field>
+        <field name="arch" type="xml">
+            <tree default_order="str_time">
+                <field name="name"/>
+                <field name="task_type_id"/>
+                <field name="str_time" widget="float_time"/>
+                <field name="end_time" widget="float_time"/>
+                <field name="duration" widget="float_time"/>
+                <field name="volunteer_nb" class="rallign" style="text-align: center;"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="task_template_view_form" model="ir.ui.view">
+        <field name="name">view.task.template.form</field>
+        <field name="model">coop.task.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="generate_task" string="Generate Task for Today"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="group_left">
+                            <field name="task_type_id" options="{'no_create': True}" required="True"/>
+                            <field name="volunteer_nb"/>
+                            <field name="active"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="str_time" widget="float_time"/>
+                            <field name="end_time" widget="float_time"/>
+                            <field name="duration" widget="float_time"/>
+                            <field name="floating"/>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible' : [('floating', '=', True)]}">
+                        <separator string="Pre defined volunteer" colspan="2"/>
+                        <field name="volunteer_ids" options="{'no_create': True}" nolabel="1" colspan="2">
+                            <tree>
+                                <field name="name"/>
+                                <field name="adress" />
+                                <field name="tel" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="task_template_view_search" model="ir.ui.view">
+        <field name="name">view.task.template.search</field>
+        <field name="model">coop.task.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="task_area"/>
+                <field name="volunteer_ids"/>
+                <field name="task_type_id"/>
+                <filter name="inactive" string="Inactive" domain="[('active', '=', False)]"/>
+                <filter name="all" string="All" domain="['|', ('active', '=', False), ('active', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="task_action" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">coop.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="task_type_action" model="ir.actions.act_window">
+        <field name="name">Task Types</field>
+        <field name="res_model">coop.task.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="task_template_action" model="ir.actions.act_window">
+        <field name="name">Task Templates</field>
+        <field name="res_model">coop.task.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
 </odoo>

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 {
      'name':'Cooperative Volunteers',
      'version':'1.0',
@@ -13,7 +14,10 @@
           'views/task_view.xml',
           'views/volunteer_view.xml',
      ],
+     'css':[
+          'static/src/css/task.css',
+     ],
      'demo':[
         'data/coop.volunteer.csv',
-    ]
+    ],
 }

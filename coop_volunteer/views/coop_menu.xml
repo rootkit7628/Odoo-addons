@@ -34,4 +34,29 @@
         parent="coop_menu"
     />
 
+    <!-- Task type -->
+    <act_window id="action_coop_task_type"
+        name="Task Type"
+        res_model="coop.task.type"
+        view_mode="tree,form"
+    />
+    <menuitem 
+        id="coop_task_type_menu"
+        name="Task Type"
+        action="action_coop_task_type"
+        parent="coop_menu" />
+    />
+
+    <!-- Task template -->
+    <act_window id="action_coop_task_template"
+        name="Task template"
+        res_model="coop.task.template"
+        view_mode="tree,form"
+    />
+    <menuitem 
+        id="coop_task_template_menu"
+        name="Task template"
+        action="action_coop_task_template"
+        parent="coop_menu" />
+    />
 </odoo>
