@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_frenchcheck" model="report.paperformat">
+        <field name="name">French Bank Check</field>
+        <field name="format">A4</field>
+        <field name="header_line" eval="False"/>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">3</field>
+        <field name="margin_bottom">3</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="dpi">80</field>
+    </record>
+   
+    <record id="action_cs_invoice" model="ir.actions.report">
+        <field name="name">CS Invoice</field>
+        <field name="model">res.partner</field>
+        <field name="binding_type">report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cs_invoice.report_cs_invoice_template</field>
+        <field name="report_file">cs_invoice.report_cs_invoice_template</field>
+        <field name="print_report_name">'CS Invoice'</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="paperformat_id" ref="cs_invoice.paperformat_frenchcheck"/>
+    </record>
+
+    <template id="report_cs_invoice_template" name="CS Invoice Report">
+        <t t-call="web.basic_layout">
+            <body>
+                <div class="container">
+                    <div style="width:95%;">
+                        <div class="row">
+                            <div class="col text-left">
+                                <img src="/cs_invoice/static/src/img/logo.png" width="150px"/>
+                                <div class="ml-2">
+                                    <span>
+                                        RAIMSLOGISTICS<br/>
+                                        28 avenue des pépinières<br/>
+                                        94260 FRESNES<br/>
+                                        vahatra ramangason<br/>
+                                        <a href="mailto:vrama@raims.fr">vrama@raims.fr</a>
+                                    </span> 
+                                </div>
+                            </div>
+                            <div class="col text-right mt-5">
+                                <h3>FACTURE</h3>
+                                <div >
+                                    <span>
+                                        <strong>FACT-20220222-X</strong><br/>
+                                        En date du 22/02/2022<br/>
+                                        Date d'échéance au 01/03/2022<br/>
+                                    </span> 
+                                </div>
+                                <div class="text-left border border-secondary rounded p-2">
+                                    <strong>FAST DESPATCH</strong><br/>
+                                    Mr - -<br/>
+                                    8 allée du cerf<br/>
+                                    93420 VILLEPINTE<br/>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="my-4 ml-2">
+                            <span>LOCATION 16M3</span>
+                        </div>
+                        <div class="ml-2">
+                            <table class="table table-sm table-borderless">
+                                <thead>
+                                  <tr class="bg-secondary text-white">
+                                    <th scope="col" colspan="3">Désignation</th>
+                                    <th scope="col">PU HT</th>
+                                    <th scope="col">Qté</th>
+                                    <th scope="col">TVA</th>
+                                    <th scope="col">Total HT</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td colspan="3">LOCATION 16M3</td>
+                                    <td class="text-right">1 130,00</td>
+                                    <td class="text-right">1,00</td>
+                                    <td class="text-right">20,00 %</td>
+                                    <td class="text-right">1 130,00</td>
+                                  </tr>
+                                  <tr class="bg-light">
+                                    <td colspan="7"><span>FEVRIER 2022</span></td>
+                                  </tr>
+                                  <tr>
+                                  </tr>
+                                  <tr>
+                                    <td class="bg-secondary text-white">Taux</td>
+                                    <td class="bg-secondary text-white">Base HT</td>
+                                    <td class="bg-secondary text-white">MontantTVA</td>
+                                    <td colspan="2"></td>
+                                    <td class="bg-secondary text-white">Total HT</td>
+                                    <td>1 130,00 €</td>
+                                  </tr>
+                                  <tr>
+                                    <td>20,00 %</td>
+                                    <td>1 130,00 €</td>
+                                    <td>226,00 €</td>
+                                    <td colspan="2"></td>
+                                    <td class="bg-secondary"></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="5"></td>
+                                    <td class="bg-secondary text-white">Total TVA</td>
+                                    <td>226,00 €</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="5"> </td>
+                                    <td class="bg-secondary"> </td>
+                                    <td> </td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="5"></td>
+                                    <td class="bg-secondary text-white">Total TTC</td>
+                                    <td><strong>1 356,00 €</strong></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                        <div class="my-4 ml-2">
+                            <span>RAIMSLOGISTICSSASU - 28 avenue des pépinières 94260 FRESNES- Capital de 7500€ - RCS Créteil 894982610</span>
+                        </div>
+                        <div style="page-break-after:always;"/>
+                        <div class="ml-2 text-justify">
+                            <h6 class="my-4"><strong>GÉNÉRALES DE VENTES</strong></h6>
+            
+                            <p>
+            Article 1 : OBJETET DOMAINE D’APPLICATION<br/>
+            Les présentes Conditions Générales de Vente (CGV) définissent les modalitésd’exécution de transport et les obligations
+            respectives de Raims Logistics, du(des) Client(s) et des différents intervenants dans lecadre d’un service de livraison de
+            marchandises de nature, de provenance et de destinations définies dans les présentes. Elles s’appliquent de plein droit et
+            règlent les relations entre le transporteur et le donneur d’ordre. RAIMS Logistics seréserve le droit de modifier les
+            présentes CGV à tout moment.<br/>
+            
+            Article 2 : DEFINITIONS<br/>
+            Au sens des présentes CGV, les termes suivants sont définis ainsi :<br/>
+            Colis : objet ou ensemble matériel composé de plusieurs objets, quel qu’en soient le poids, les dimensions et le volume
+            constituant une charge unitaire remise au transporteur (bac,cage,carton,caisse,conteneur, enveloppe, fardeau, fût,
+            paquet, palette cerclée ou filmée par le donneur d‘ordre, rouleau, sac,valise, etc.) et conditionnée par l’expéditeur dont le
+            contenu en est détaillé dans le document de remise.<br/>
+            Contrat : un contrat de transport routier est une convention par laquelle un professionnel, le transporteur (ou voiturier),
+            s’engage à déplacer une certaine quantité de marchandises ne lui appartenant pas. Il est consensuel (il prend effet dès que
+            les parties sont d’accord,même parcontact téléphonique) et bilatéral sur le plan juridique.<br/>
+            Déclaration de Valeur : fait de contracter une assurance complémentaire pour un montant souhaité à la demande expresse
+            du donneur d’ordre dans la limite du contrat d’assurance du transporteur.<br/>
+            Déclaration d’Intérêt Spécial : permet d’élever le niveau de responsabilité en cas de retard, moyennant une rémunération
+            spécifique.<br/>
+            Document de suivi : voir LeMre de voiture. Donneur d’ordre : partie (expéditeur, commissionnaire de transport ou autre) qui
+            conclut le contrat de transportavec le transporteur.<br/>
+            Durée de mise à disposition du véhicule : délai qui s’écoule entre le moment ou le véhicule est identifié à son arrivée sur le
+            lieu de chargement ou de déchargement ou dans l’aire d’aMente et celui où il est prêt à quiMer ces lieux après émargement
+            des documents de transport.<br/>
+            Envoi : ensemble de marchandises (emballage et support de charge compris),mis effectivement, au même moment, à la
+            disposition d’un transporteur et dont le transport est demandé par un même donneur d’ordre pour un même destinataire
+            d’un lieu de chargement unique à un lieu de déchargement unique et faisant l’objet d’un même contrat de transport.
+            Jours non ouvrables : dimanches et jours de fêtes légales ainsi que les jours d’interdiction de circulation imposés par les
+            pouvoirs publics.<br/>
+            Laissé pourcompte : envoi dont le destinataire a refusé de prendre livraison pour quelque motif que ce soit et qui est laissé
+            à disposition du transporteur par le donneur d’ordre.<br/>
+            LeMre de voiture : document liant les différentes parties de la prestation de transport, validé tout au long de la prestation
+            par les différents intervenants. Elle peut être sous forme papier ou électronique.
+            Livraison : remise physique de la marchandise au destinataire ou à son représentant dûment désigné, qui l’accepte
+            juridiquement.<br/>
+            Livraison contre-remboursement : mandat, donné par le donneur d’ordre au transporteur qui l’accepte, de se faire remeMre
+            concomitammentà la livraison une somme grevant la marchandise. La stipulation d’une livraison contre-remboursement ne
+            vaut pas Déclaration de Valeur.<br/>
+            Prestation annexe : prestation hors contrat standard, donnant droit à rémunération complémentaire du transporteur
+            (contre-remboursement, déclaration de valeur, déclaration d’intérêt spécial, nouvelle présentation, etc.).<br/>
+            Prise en charge : remise physique de la marchandise au transporteur qui l’accepte juridiquement.<br/>
+            Souffrance de la marchandise : cas où ni le destinataire dûment avisé de sa présentation, ni le donneur d’ordre informé de
+            cette situation, ne donne d’instruction au transporteur quantau sort réservé à la marchandise.<br/>
+            
+            Article 3 : CARACTERITIQUES DELA PRESTATION<br/>
+            Le transporteur s’engage à réaliser la prestation de transport/livraison dans les conditions et délais définis à la commande
+            entre les différents intervenants et conformémentaux règles et normes en vigueur.<br/>
+            RAIMS Logistics se réserve le droit de sous-traiter tout ou partie de saprestation et définit librement les moyens de
+            transport et les voies utilisées sauf demande expresse du Donneur d’ordre, validée par le transporteur. Le cas échéant, ces
+            modifications entrent dans le cadre des prestationsannexes et peuventamenerà une facturation complémentaire.<br/>
+            
+            RAIMS Logislics netransportera aucune marchandise dont le transport est interdit par la loi et/ou figurant parmi la liste,
+            non exhaustive suivante : êtres humains ou animaux,vivants ou morts,armes par nature,matériels de guerre ou assimilés.
+            Dans tous lescas, un transport de marchandise(s) spécifique(s) fera l’objet systémalique d’un devis, et le cas échéant, d’une
+            lettre de voiture particulière.<br/>
+            Au litre de la prestalion, le donneur d’ordre fournit au transporteur, préalablement à la présentalion du véhicule à la prise
+            en charge, par écrit ou par tout moyen électronique de transmission et de conservation des données :<br/>
+            - coordonnées complètes de l’expéditeur, du donneur d’ordre et du deslinataire, des lieux de prise en charge et de dépose si
+            différents ;<br/>
+            - les dates et horaires de prise en charge, de chargement et de déchargement ;<br/>
+            - la nature très exacte de la marchandise, le poids brut de l’envoi, le nombre de colis, de supports de charge, leur emprise et
+            caractéristiques spéciales éventuelles ;<br/>
+            - la spécificité de la marchandise quand celle-ci requiert des disposilions parliculières (malières dangereuses, denrées
+            périssables,marchandises sous température dirigée, etc.)ainsi que les documents liés ;<br/>
+            - les modalités de paiement ;<br/>
+            - les prestationsannexes éventuelles convenues et leurs modalités d’exécution ;<br/>
+            - les instructions spécifiques en cas d’empêchementà la livraison.<br/>
+            
+            Article 4 : OBLIGATIONSET DROITS DES PARTIES<br/>
+            <strong>Article 4.1 - Transport de marchandises</strong><br/>
+            *L’expéditeur, outre les mesures précédentes :<br/>
+            - doit emballer et étiquetercorrectement la marchandise ;<br/>
+            - doit faire une déclaration exacte de chargement (nature de la marchandise, poids,matières dangereuses, etc.) ;<br/>
+            - doit donner les documents d’accompagnement de la marchandise (DAE – Document Administratif Electronique des
+            alcools,certificats sanitaires, …) ;<br/>
+            - peut exiger un véhicule adapté à la marchandise et refuser un véhicule non conforme, (détérioré, sale, etc.) ;<br/>
+            - est responsable de toute fausse déclaration sur les caractéristiques du chargement (marchandises dangereuses ou
+            frauduleuses) et en cas de défectuosité de l’emballage.<br/>
+            Le transporteur :<br/>
+            - a une obligation de résultat (garant de la bonne fin du contrat de transport) ;<br/>
+            - doit charger et décharger les lots &lt;3 T au pied du véhicule de transport ; toute demande de transport dans un autre lieu
+            fera l’objet d’une facturation complémentaire ;<br/>
+            - doit laisser le tempsau destinataire pour contrôler la marchandise (dans la limite du ¼ suivant l’arrivée au lieu de livraison)
+            ; tout dépassement de ce délai, indépendant du transporteur, fera l’objet d’une facturation supplémentaire par ¼ d’heure
+            entamé ;<br/>
+            - doit établir le titre de transport ;<br/>
+            - doit refuser une marchandise qui entrainerait une surcharge par rapportaux conditions du contrat ;<br/>
+            - doit émettre des réserves en cas de non-conformité des marchandisesau chargement ;<br/>
+            - a un droit de rétention (art. L. 133-7 du Code de Commerce) : letransporteur peut retenir la(les) marchandise(s) en sa
+            possession à titre de garantie non seulement pour les créances en cours mais aussi les créances antérieures (à condition
+            qu’elles ne soient pas prescrites) ;<br/>
+            - peut avoir recours à l’action directe de paiement (art. L. 132-8 du Code de Commerce) : letransporteur peut réclamer le
+            paiement de sa prestation à toutes les parties liées au contrat, même si certaines de ces dernières ont déjà réglé la
+            prestation à un tiers ;<br/>
+            - est responsable en cas de perte,avarie ou manquant depuis le moment de leur prise en charge jusqu’à leur livraison ;<br/>
+            - est responsable en cas de retard ;<br/>
+            - est responsable des opérations de chargement pour les envois de moins de 3 tonnes.<br/>
+            Le destinataire :<br/>
+            - doit prendre livraison sauf motif légitime ;<br/>
+            - doit payer le port dû, le cas échéant, et/ou le contre-remboursement lorsque l’ordre est donné par l’expéditeur d’encaisser
+            une certaine somme lors de la livraison ;<br/>
+            - peut refuser la marchandise s’ilya un motif légitime de refus (ex. faute du transporteur) ;<br/>
+            - doit émeMre des réserves en cas de dommage, avarie ou retard de la part du transporteur tout en respectant la
+            conformité de ces réserves (art. L133-3 du Code de Commerce pour les professionnels) ;<br/>
+            - est responsable de ces formalités en cas de litige.<br/>
+            Article 5 : RESPONSABILITES<br/>
+            La responsabilité du transporteur est strictement limitée à celle encourue par ses sous-traitants (transporteurs,
+            mandataires, entreprises et leurs subs@tués) dans le cadre de l’opéra@on à lui confier. Dans le cas où la responsabilité
+            propre du transporteur serait engagée pour quelque cause età quel titre que ce soit, elle est strictement limitée :
+            Pour le transport de marchandises :<br/>
+            1 – En cas de perte ou d’avarie, en transport na@onal,à 33 € parkilogramme de poids brut de marchandise sinistrée avec un
+            maximal de 1 000 € par colis, quels qu’en soient le poids, le volume, les dimensions, la nature ou la valeur, étant entendu
+            que l’indemnité allouée ne peut évidemment pas dépasser dans les limites ci-avant, la valeur réelle de la marchandise. Le
+            client peut expressément souscrire, à ses frais etavant l’enlèvement (hors livraison sans émargement), une assurance Ad
+            Valorem en se rapprochant des services d’ATS Express, dans la limite maximale de 10.000 € par colis, en se rapprochant des
+            services d’ATSExpress.<br/>
+            2 – Si le dommage a pourcause un retard de livraison ou est autre que matériel : au prix du transport de la marchandise
+            (droits, taxes et frais divers exclus). Il est toutefois possible au client de souscrire à ses frais et avant l’enlèvement, une
+            assurance complémentaire (IntérêtSpécialà la Livraison),auprès d’ATSExpress.<br/>
+            Ces instructions doivent être renouvelées pourchaque opération.<br/>
+            Lesrèglements des sinistres se font sous forme d’avoir et sur la base du préjudice subi en fonc@on du prix H.T. de la
+            marchandise ou d’un devis de répara@on en tenant compte d’une éventuelle vétusté. Dans tous lescas ci-dessus,
+            l’indemnité ne pourra jamais s’étendre nià la réparation, nià la compensation quelle qu’elle soit, d’une quelconque perte ou
+            dommage immatériel consécu@f ou non consécu@f pouvant être subi par le client, le des@nataire de l’envoi ou toute @erce
+            personne. En cas de perte ou d’avarie, le des@nataire doit émeMre des réserves précises et mo@vées sur le document de
+            transport. La signature numérisée du des@nataire ainsi que sa reproduc@on feront preuve de la livraison du(des) colis et les
+            parties reconnaissentà cette signature une valeur juridique identique à celle d’une signature conventionnelle sur papier. Ces
+            preuves de livraison ne sont fournies sur support papier que dans le cas d’une contesta@on réelle et sérieuse du
+            destinataire. Dans tous les autres cas, le client devra acquiMer un montant forfaitaire de 45 € H.T. par preuve de livraison.
+            Toute réclama@on formulée par un client à l’encontre de RAIMS Logis@cs devra être no@fiéepar leMre recommandée avec
+            accusé de réception dans les 3 jours (non compris les jours fériés)à partir de la date du récépissé de livraison ou de la date à
+            laquelle il en a connaissance en cas de perte totale ou de dispari@on et au maximum dans les 6 semaines de la date
+            prévisionnelle de livraison. La responsabilité de RAIMS Logis@cs se trouvedégagée en cas de vol, perte, retard ou avaries
+            imputables soit à des évènements de force majeure, soit des faits ou fautes de l’expéditeur ou du des@nataire ou d’un @ers,
+            soit d’un vice propre de la marchandise.<br/>
+            Lamarchandise doit être remise et conditionnée, emballée, marquée, étiquetée, de façon qu’elle puisse supporter les
+            opérations confiées et être délivrée au destinataire conformément aux instructions données au transporteur. La
+            responsabilité de ce dernier ne saurait être engagée pour toutes les conséquences résultant d’une absence, d’une
+            insuffisance ou d’une défectuosité du conditionnement de l’emballage, du marquage et/ou de l’étiquetage, du défaut
+            d’informations suffisantes sur la nature et les particularités des marchandises. En cas de perte, avaries ou tous autres
+            dommages subis par la marchandise, ou en cas de retard, ilappartientau destinataire ou au réceptionnaire de procéderaux
+            constations régulières et suffisantes, de prendre les réserves légalesà l’égard du transporteur et en général d’effectuer tous
+            les actes nécessaires à la conservation des recours dans les formes et délais légaux, faute de quoi aucun recours ne pourra
+            être exercé contre RAIMS Logistics. Les clients donneurs d’ordre supporteront seuls lesconséquences, quelles qu’elles
+            soient, résultant de déclarations ou documents erronés, incomplets, inapplicables ou fournis tardivement. En cas de refus
+            des marchandises par le destinataire comme en cas de défaillance du destinataire pour quelque cause que ce soit, tous les
+            frais et initiaux et supplémentaires dus et engagés par le transporteur resterontà la charge du donneur d’ordre.<br/>
+            
+            Article 6 : ASSURANCE<br/>
+            L’assurance "Transport de Marchandises"garantit la perte, l’avarie causée au bien transporté et le retard de livraison dans
+            les limites de responsabilités définies précédemment. A défaut de spécification précise, seuls les risques ordinaires sont
+            assurés. Le client peut cependant souscrire une couverture d’assurance complémentaire auprès de RAIMSLogistics, dans la
+            limite de 10 000 € hors taxes,moyennant une plus-value de 1 % de la valeur déclarée.
+            Lesconditions de la police sont réputées connues et agréées par les expéditeurs et les destinataires qui en supportent le
+            coût. Aucune réclamation ne sera admise sans la production d’un certificat régulier de constat d’avarie ou de perte délivré
+            par l’agent des assureurs (à défaut, par les autorités compétentes) et sans la justification desactes nécessaires à la
+            conservation des recours. L’indemnité d’assurance ne sera transmise au client que lorsque celle-ci aura été remise par la
+            compagnie d’assurance de RAIMSLogistics.<br/>
+            L e transporteur sera exonéré par le cas de force majeure (évènement imprévisible, insurmontable et extérieur au
+            transporteur - ex., tempête non prévue), par le vice propre de la marchandise (fuite, dessication,...), par la faute de
+            l'expéditeur ou du destinataire (défaut d'emballage, défautau déchargement,...) et/ou par la faute d'un tiers (accident de la
+            route causé par un tiers,...).<br/><br/>
+            
+            
+            Article 7 :TRANSPORTSSPECIAUX<br/>
+            S ur demande expresse formulée par le client, RAIMS Logistics peut prendre encharge des marchandises spécifiques
+            (matières dangereuses suivant la réglementation ADR, marchandises sous température dirigée, etc.). Cetype de prestation
+            sera réalisée avec du matérieladapté suivant les conditions définiesavec le client (cf. « Obligations et Droits »), notamment
+            suivant les normes en vigueurconcernant l’emballage, l’étiquetage, le marquage.<br/>
+            
+            Article 8 : PRIX DES PRESTATIONS<br/>
+            Tous les prix s’entendent hors taxes et seront augmentés de la TVA au taux en vigueur au moment de la réalisation des
+            prestations.<br/>
+            Les prix sont calculés su la base des informations fournies par le client donneur d’ordre, en tenant compte notamment des
+            prestations à effectuer, de la nature, du poids et du volume de la marchandise à transporter. Elles sont également fonction
+            des conditions et tarifs des sous-traitantsainsi que des lois, règlements et conventions internationales en vigueur.
+            Si ou plusieurs de ces éléments de base se trouvaient modifiés après remise de la cotation, les prix donnés par la cotation
+            seraient modifiés dans les mêmes conditions ; il en serait de même en cas de tout évènement imprévu entrainant
+            notamment modification des parcours de transport prévus. La loi du 5 janvier 2006 relative à la sécurité et au
+            développement des transports précise : « le prix des transports initialement convenu est révisé de plein droit pour prendre
+            en compte la variation des charges liéesà la variation du coût du carburant entre la date du contrat et la date de réalisation
+            de l’opération de transport ».<br/>
+            Les prix ne comprennent pas les droits, taxes, redevances et impôts dûs en application de toute réglementation fiscale ou
+            douanière (tels que droits d’entrée, timbres, etc.). Par ailleurs, les tarifs pourront être révisés à tout moment par RAIMS
+            Logistics. La grille tarifaire valable est celle disponible sur le site internet de RAIMSLogisticsau jour de la commande.<br/>
+            Article 9 : CONDITIONS DE PAIEMENT<br/>
+            Les prestations de services sont facturées, sauf indication contraire, à l’expéditeur et sont payables comptant à réception
+            de la facture, sans escompte, au lieu de leur émission. Le client donneur d’ordre est toujours garant de leur acquiMement.
+            L’imputation unilatérale du montant des dommagesallégués sur le prix des prestations dues est interdite.<br/>
+            L’expéditeur, le destinataire et toutes parties du contrat sont conjointement et solidairement tenus responsables comme
+            débiteurs principaux pour toute somme due,ycompris en cas d’instruction de facturation du destinataire.<br/>
+            Lorsque exceptionnellement des délais de paiementauront été consentis, tout paiement partiel sera imputé en premier lieu
+            sur la partie non privilégiée des créances. Le non-paiement d’une seule échéance emporterasans formalité d’échéance du
+            terme, le solde devenant immédiatement exigible même en cas d’acceptation d’effets.<br/>
+            Pour les factures mensuelles, un minimum de facturation s’élevantà 24 € H.T. sera appliqué au titre de frais de gestion. Des
+            pénalités sontappliquées dans le cas où les sommes dues sont versées après la date de paiement figurant sur la facture.
+            Ces pénalités sont d’un montant équivalent à celui qui résulte de l’application d’un taux égal à trois fois le taux de l’intérêt
+            légal (loi n°92-1442 du 31/12/92). En outre,toute facture recouvrée par voie contentieuse sera majorée à titre de clause
+            pénale d’une indemnité fixée à 10 %,avec un minimum de 40 €.<br/>
+            Le paiement du prix du transport, en tout état de cause, ne peut excéder trente jours à compter de la date d’émission de la
+            facture, conformémentà l’article L441-6 du Code du Commerce. Les pénalités en résultantseraient appliquées
+            intégralement.<br/>
+            Toute réclamation portant sur le libellé ou le montant des factures que RAIMS Logistics établit doit, sous peine de
+            forclusion, lui être notifiée dans le mois suivant la date de facture contestée, telle que cette date figure sur ladite facture.
+            
+            Article 10 : DROIT DE GAGE CONVENTIONNEL<br/>
+            Le donneur d’ordre reconnait expressémentau transporteur un droit de gage conventionnel emportant droit de rétention et
+            de préférence général et permanent sur toutes les marchandises, valeurs et documents en possession de celui-ci et ce en
+            garantie de la totalité des créances (factures, intérêts, frais engagés, etc.) que le transporteur détient contre lui-même,
+            même antérieures ou étrangères aux opérations effectuées au regard des marchandises, valeurs et documents qui se
+            trouvent effectivement entre ses mains.<br/>
+            
+            Article 11 : DROIT D’INSPECTION<br/>
+            L e client autorise le transporteur RAIMS Logistics, sous réserve du respect dela réglementation touchant le secret des
+            correspondances et en cas de besoin particulier, à ouvrir et inspecter à tout moment les colis qui lui sont remis, ainsi qu’à
+            toute autorité compétente, et notamment l’autorité douanière.<br/>
+            Article 12 : PRESCRIPTION<br/>
+            Toutes les actions auxquelles un contrat conclu entre les parties peut donner lieu sont prescrites dans un délai d’un an à
+            compter de l’exécution dudit contrat. L’accord des présentes peut être résilié par l’une ou l’autre partie par l’envoi d’une
+            leMre recommandée avec accusé de réception moyennant un préavis de trois mois. Pendant la période de préavis, les
+            parties s’engagentà maintenir l’économie du contrat.<br/>
+            
+            Article 13 : ANNULATION ETINVALIDITE<br/>
+            Au cas où l’une des quelconques dispositions des présentes Conditions Générales de Vente serait déclarée nulle ou réputée
+            non écrite, toutes les autres dispositions resteraient applicables, sous réserve que la disposition nulle ou invalide n’ait pas
+            été une condition déterminante du consentement de RAIMSLogistics ou du clientau jour de la conclusion du contrat.<br/>
+            
+            Article 14 : CLAUSE ATTRIBUTIVE DEJURIDICTION<br/>
+            Le présent contrat est soumisau droit français, il est faitaMribution de juridiction auprès du Tribunal de Commerce du siège
+            de RAIMS Logistics quisera seul compétent quels que soient la nature, la cause ou le lieu du litige et quelles que puissent
+            être les conditions spéciales de la prestation,même en cas de pluralité de défendeurs ou d’appel en garantie.<br/>
+            
+            Article 15 : PROTECTION DES DONNEES<br/>
+            RAIMS Logistics s’engage à respecter la confidentialité des donnéespersonnelles communiquées par les différents
+            intervenants de la prestation de transport, à les traiter et à les conserver 5 ans dans le respect des lois en vigueur et
+            notamment conformément au Règlement Général sur la Protection des Données (RGPD). Le donneur d’ordregarantit avoir
+            reçu de la part des différents intervenants, hors transporteur, toutes les autorisations et approbations nécessaires au
+            traitement de ces données par le responsable de traitement de RAIMS Logistics. Ces données peuvent être communiquées
+            au sous-traitant, le cas échéant, uniquement pour l’exécution de la prestation. Les personnes concernées disposent d’un
+            droit d’accès, de modification, de rectification et de suppression des informations le concernant, droit à faire valoir par
+            courrier postal ou électronique auprès de RAIMSLogistics.<br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </t>
+    </template>
+</odoo>
